@@ -49,9 +49,7 @@
             }
            else{
              
-            echo '<script language="javascript">';
-            echo 'alert ("Selecione a fileira a ser excluida!")';
-            echo '</script>';
+            
             header("Location: http://localhost/tela2.php");
             }
 
