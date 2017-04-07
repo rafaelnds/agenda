@@ -25,7 +25,7 @@
                     error_log($login);
                     error_log($log);
                    
-                    if($uId!=0){
+                    if($uId!=0 ){
                      if($login==$log && $id!=$uId){
                         error_log("entrou com id != 0");
                         $ver2 = "2";}}
@@ -50,6 +50,7 @@
             die(print_r($e->getMessage()));   
             }return $var;
           }
+          /*Valida RG/CPF */
         function validaDoc($vCpf,$vRg){
               $conn= bancoDados::fazConexao();
              error_log('executou');
@@ -359,7 +360,7 @@
                 }
            
         }
-        /*Filtro*/
+        /*Filtro de pessoa*/
         function buscaPessoa( $varnomep=0, $varid=0, $vartel=0,$varemail=0) {
                $conn= bancoDados::fazConexao();
                echo "<table><tr><th></th><th>ID</th><th>Nome</th><th>Telefone</th><th>Nome fantasia</th><th>Razao Social</th><th>EMAIL</th><th>Estado Civil</th><th>CPF</th><th>RG</th><th>CNPJ</th></tr>";
@@ -443,6 +444,7 @@
                 }
                 
              }
+        /*Filtro de usuarios*/
         function buscaUser($nomeuser=0,$log=0,$idu=0){
                  $conn= bancoDados::fazConexao();
                   echo "<table><tr><th></th><th>ID</th><th>Nome</th><th>Login</th><th>Senha</th></tr>";  
@@ -486,7 +488,7 @@
                 echo "</table>";  
             }
 
-             /*Faz Validação de Pessoa na Mudança*/
+             /*Faz Validacao de Pessoa na Mudanca*/
         function validaMudanca($vId,$vTel,$vEmail){
             $conn= bancoDados::fazConexao();
             try{ 
