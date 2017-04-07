@@ -13,8 +13,8 @@ require("bancoDados.php");
     if(isset($_POST['contr'])){
         $ide=$_POST["idEntidade"];
         error_log($ide);
-        
-          
+            if($_POST['newlogin']!="" && $_POST['newsenha']!=""){
+                
              $ver= bancoDados::validaUsuario($ide,$_POST['newlogin']);
                if($ver==true){/*ativa mudanÃ§a*/
                    error_log("VERIFICOU");
@@ -22,7 +22,14 @@ require("bancoDados.php");
                     header("Location: http://localhost/tela2.php?type=us");
                }
                else {header("Location: http://localhost/mudancaUsuario.php?idn=$ide&erro=err");}
-          }
+    }
+            else {
+                   echo "<span style='color:red'>*Espaço em branco Inválido!</span>";
+                  $usuario=bancoDados::imprimiUser($ide);
+                  $usuario=$usuario[0];}}
+    }
+             
+               
       
         
                
@@ -36,7 +43,7 @@ if(isset($_GET["erro"])){
     $sErr="*Login ja cadastrado";
 }
 }
-}
+
  
  
  
@@ -62,7 +69,7 @@ if(isset($_GET["erro"])){
                 <tr> 
                   <td>Senha:</td> 
                     <td> <input type = 'text' name = 'newsenha' value='<?php echo $usuario['SENHA'];?>' > 
-                    <span class = 'error'</td> 
+                    </td> 
                 </tr>
                  
             </table>
