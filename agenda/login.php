@@ -71,7 +71,7 @@
                     
 		}
 		else {
-                    echo "Login ou Senha incorretos!";
+                    echo "<span style='color:red'>*Login ou Senha incorretos!</span>";
                     unset ($_SESSION['login']);
                     unset ($_SESSION['senha']);
                    
